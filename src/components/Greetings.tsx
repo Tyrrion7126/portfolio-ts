@@ -1,12 +1,10 @@
-import React, { FC, useState, useEffect, useRef } from "react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect, useRef } from "react"
 
-interface Profile {
-  name: string
+interface GreetingsProps {
+  name: string,
   city: string
 }
-
-export default function Greetings(props) {
+export default function Greetings(props: GreetingsProps) {
   const [greet, setGreet] = useState<string>("Hello")
   const [property, setProperty] = useState<boolean>(false)
   const greets: string[] = ["Xin Chào", "Hallo", "Ciao", "Merhaba", "Olá"]

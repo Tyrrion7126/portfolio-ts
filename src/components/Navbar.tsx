@@ -8,11 +8,9 @@ import {
   NavbarMenu,
   Link
 } from '@nextui-org/react'
-import { Separator } from "@/components/ui/separator"
 import { Button } from '@/components/ui/button'
 
 export default function Navbars() {
-  const [dark, setMode] = useState(true)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuItems = [
     {
@@ -28,8 +26,13 @@ export default function Navbars() {
     <div>
       <Navbar
         onMenuOpenChange={setIsMenuOpen} 
-        classNames="wrapper" 
-        className="fixed h-12 lg:h-16" 
+        classNames={{
+          wrapper: [
+            "fiex",
+            "h-12",
+            "lg:h-16"
+          ]
+        }}
         isBordered
       >
         <NavbarMenuToggle
@@ -37,7 +40,7 @@ export default function Navbars() {
           className="sm:hidden"
         />
         <NavbarMenu>
-          {menuItems.map((item, index) => (
+          {menuItems.map((item) => (
             <NavbarMenuItem key={item.name}>
               <Link
                 className="w-full font-k2d"

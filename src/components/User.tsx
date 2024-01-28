@@ -8,7 +8,6 @@ import {
   AvatarFallback
 } from "@/components/ui/avatar"
 import { Skeleton } from "@/components/ui/skeleton"
-import axios from "axios"
 
 interface UserProps {
   name: string,
@@ -16,7 +15,7 @@ interface UserProps {
   bio: string,
 }
 
-export default function User(props: UserProps): React.FC {
+export default function User(props: UserProps) {
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     setTimeout(() => {

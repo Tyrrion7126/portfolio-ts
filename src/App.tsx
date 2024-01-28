@@ -1,12 +1,12 @@
-import { Button } from '@/components/ui/button';
 import Navbars from './components/Navbar'
 import Greetings from "./components/Greetings"
 import User from "./components/User"
 import Heading from "./components/Heading"
 import Repos from "./components/Repos"
 import TechStack from "./components/Techstack"
+import Footer from "./components/Footer"
 
-export default function App(): React.FC {
+export default function App() {
   return (
     <div>
       <Navbars />
@@ -20,11 +20,7 @@ export default function App(): React.FC {
       <Repos username="Tyrrion7126" />
       <Heading title="Tech Stack" className="my-14 md:my-16" color="bg-gradient-to-br from-sky-500 to-violet-500" />
       <TechStack />
-      <div className="my-16 flex justify-center">
-        <p className="font-k2d tracking-tight text-slate-400 text-md font-semibold">
-          Made with ❤️ by Yon using <span className="text-slate-200">React</span>.
-        </p>
-      </div>
+      <Footer />
     </div>
   );
 }

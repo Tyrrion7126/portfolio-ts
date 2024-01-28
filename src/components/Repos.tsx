@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Button } from "@/components/ui/button"
 import { Octokit } from "@octokit/core"
-import { Link } from "@nextui-org/react"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -16,15 +15,15 @@ import {
 } from "@/components/ui/alert-dialog"
 
 const octokit = new Octokit({
-  auth: import.meta.env.GH_TOKEN
+  auth: process.env.GH_TOKEN
 })
 
 interface ReposProps {
   username: string,
-  className: string,
+  className?: string,
 }
 
-export default function Repos(props: ReposProps): React.FC {
+export default function Repos(props: ReposProps) {
   const [repos, setRepos] = useState<any>(null)
 
   async function fetchRepos() {
@@ -36,7 +35,7 @@ export default function Repos(props: ReposProps): React.FC {
         }
       })
       setRepos(response.data)
-    } catch (error) {
+    } catch (error: any) {
       setRepos({ error: error.message })
     }
   }
@@ -56,7 +55,7 @@ export default function Repos(props: ReposProps): React.FC {
               <div className="block border shadow-inner font-k2d shadow-md hover:scale-[102%] hover:bg-[#202020] transition rounded bg-secondary my-3 pl-3 pb-3 mx-5">
                 <div className="flex justify-between items-center">
                   <h2 className="text-md md:text-xl lg:text-2xl font-bold">{repo.name}</h2>
-                    <AlertDialog className="">
+                    <AlertDialog>
                       <AlertDialogTrigger asChild>
                         <Button
                           variant="link" 
@@ -98,7 +97,7 @@ export default function Repos(props: ReposProps): React.FC {
                 </div>
                 <div className="flex flex-wrap border-t pt-2 mr-3 mt-3">
                   {repo.topics[0] ?
-                    repo.topics.map((topic) => (
+                    repo.topics.map((topic: string) => (
                       <div className="rounded-full mx-1 my-1 bg-violet-400 bg-opacity-20 py-0.8 px-1.5 inline-block">
                         <p className="text-sm font-semibold text-violet-400 lg:text-md">{topic}</p>
                       </div>

@@ -1,14 +1,11 @@
-import {
-  React
-} from "react"
 
 interface HeadingProps {
   title: string,
-  className: string,
+  className?: string,
   color?: string,
 }
 
-export default function Heading(props: HeadingProps): React.FC {
+export default function Heading(props: HeadingProps) {
   return (
     <div>
       <div className={`ml-5 ${props.className ? props.className : "my-5"} font-k2d font-bold text-2xl`}>
